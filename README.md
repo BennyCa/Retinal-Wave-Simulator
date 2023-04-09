@@ -34,13 +34,13 @@ The produced data files will be
 'amacrine_<start_num+relative_start>.dat' - 
 'amacrine_<start_num+relative_end_exclusive-1>.dat'.
 
-EXAMPLE
+#### EXAMPLE
 ./gen 1000 100 200 will produce amacrine files from 1100 to 1199.
 
 This can be useful for BATCH processing large datasets on multiple
 threads, e.g. on Linux:
 
-cd .. & ./gen 0 0 62 & ./gen 0 62 124 & ...  & ./gen 0 1302 1364 &
+	cd .. & ./gen 0 0 62 & ./gen 0 62 124 & ...  & ./gen 0 1302 1364 &
 will produce 1364 amacrine_<num>.dat files (0>=num>1364).
 
 this is not perfect, as some batches might finish faster -
@@ -50,8 +50,7 @@ future improvement would be directly implementing parallelism.
 
 ### To GENERATE IMAGES FROM THE SIMULATION, type
 	
-	./view [start_num_ama] [threshold] [count_ama] [num_imgs] 
-	[spacing] [output_all]
+	./view [start_num_ama] [threshold] [count_ama] [num_imgs] [spacing] [output_all]
 
 where all args are integers and
  - count_ama > 0
@@ -67,8 +66,8 @@ num_img: how many images per amacrine file should be created.
 spacing: temporal spacing of images per amacrine file. 1=no skip.
 output_all: if 1, output also raw images (without augmentations).
 
-EXAMPLE & Batch processing e.g. on Linux:
-cd .. & ./view 706 1000 3 2000 1 1 & ./view 709 1000 3 2000 1 1 &
+#### EXAMPLE & Batch processing e.g. on Linux:
+	cd .. & ./view 706 1000 3 2000 1 1 & ./view 709 1000 3 2000 1 1 &
 will produce 6 folders, 706..711, each containing a "parsed" folder
 with 2000 augmented images and a "raw" folder with all
 the raw simulation frames visited in the parsed image creation process.
